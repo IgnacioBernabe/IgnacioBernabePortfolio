@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Puestal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color: #030E0F;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-container {
+            width: 100%;
+            max-width: 430px;
+            background-color: #030E0F;
+            padding: 20px;
+            position: fixed;
+            height: 90vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+        }
+
+        .logo {
+            font-family: 'Roboto', sans-serif;
+            font-style: italic;
+            color: #fff;
+            font-size: 24px;
+            line-height: 0.8;
+            font-weight: 800
+        }
+
+        .description {
+            font-size: 12px;
+            color: rgb(171, 171, 171);
+            line-height: 1;
+            text-align: left;
+        }
+
+        .info-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 21px 0;
+            min-height: 150px;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .left-column div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .left-column .label {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 1.3em;
+            color: rgb(184, 184, 184);
+            font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+        }
+
+        .left-column .text {
+            font-size: 12px;
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0;
+            font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            flex: 1;
+        }
+
+        .right-column .label {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 1.3em;
+            color: rgb(184, 184, 184);
+            font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+        }
+
+        .right-column .deliverables {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+
+        .right-column .deliverables p {
+            font-size: 12px;
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0;
+            font-family: "Inter Display", "Inter Display Placeholder", sans-serif;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .additional-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: auto;
+        }
+
+        .additional-container div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .additional-container .label {
+            font-weight: 500;
+            font-size: 12px;
+            color: rgb(184, 184, 184);
+            line-height: 1.3;
+        }
+
+        .additional-container p {
+            font-size: 12px;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .right-container {
+            flex: 1;
+            background-color: #030E0F;
+            padding: 20px;
+            height: 100vh;
+            overflow-y: auto;
+            margin-left: 410px;
+            margin-right: 0;
+            will-change: transform;
+            scroll-behavior: smooth;
+        }
+
+        .content-section {
+            min-height: auto;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .image-section {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .left-container {
+                position: static;
+                max-width: 100%;
+                height: auto;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .logo {
+                font-size: 20px;
+                line-height: 0.8;
+                text-align: left;
+            }
+
+            .description {
+                font-size: 11px;
+            }
+
+            .info-container {
+                gap: 15px;
+                padding: 15px 0;
+                min-height: auto;
+            }
+
+            .left-column {
+                gap: 15px;
+            }
+
+            .right-column {
+                align-items: flex-end;
+                justify-content: flex-end;
+            }
+
+            .right-column .deliverables {
+                align-items: flex-start;
+            }
+
+            .right-column .deliverables p {
+                text-align: left;
+                margin: 0;
+            }
+
+            .right-column .label {
+                margin-bottom: 0;
+            }
+
+            .additional-container {
+                gap: 15px;
+                margin-top: 0;
+            }
+
+            .right-container {
+                margin-left: 0;
+                margin-right: 0;
+                height: auto;
+                padding: 0 20px 20px 20px;
+            }
+
+            .content-section {
+                min-height: auto;
+                height: auto;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 0;
+                display: block;
+                position: relative;
+            }
+
+            .content-section:last-child {
+                margin-bottom: 0;
+            }
+
+            .image-section {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+                object-fit: contain;
+                border-radius: 10px;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-container">
+            <div class="logo">IGNA<br>BRNB</div>
+            <div class="description">Creative solutions for modern<br>digital experiences</div>
+            <div class="info-container">
+                <div class="left-column">
+                    <div>
+                        <span class="label">Industria</span>
+                        <span class="text">Turismo</span>
+                    </div>
+                    <div>
+                        <span class="label">Publicado</span>
+                        <span class="text">2025</span>
+                    </div>
+                    <div>         
+                        <span class="label">Live site</span>
+                        <span class="text">Puestal.es</span>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <div>
+                        <span class="label">Entregables</span>
+                        <div class="deliverables">
+                            <p>Plataforma web</p>
+                            <p>Diseño UI/UX </p>
+                            <p>Contenido para rr.ss</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="additional-container">
+                <div>
+                    <span class="label">Resumen del Proyecto</span>
+                    <p>Una marca de souvenirs diseñada para responder a las necesidades del viajero contemporáneo: espontáneo, conectado y sin tiempo que perder.
+Nuestro objetivo es acompañar al visitante en su experiencia, haciendo posible que se lleve un recuerdo auténtico del destino, sin interrupciones, sin horarios y sin complicaciones a través de máquinas de vending instaladas en hoteles, campings y hostales seleccionados.</p>
+                </div>
+                <div>
+                    <span class="label">Nuestro Enfoque</span>
+                    <p>Partimos de una historia real y emotiva: su fundador perdió todas las fotos de su viaje y solo le quedó una postal.
+Esa anécdota se convirtió en el eje para conectar emocionalmente con la audiencia y viralizar la marca.
+Además, desarrollamos una estética cercana, divertida y desenfadada, inspirada en las cadenas de fast food, para dar vida al concepto de “fast souvenir”: recuerdos instantáneos, accesibles y con personalidad.  
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right-container" id="smooth-content">
+            <div class="content-section" id="section1">
+                <img class="image-section" src="public/img/Puestal/Frame 1.png" alt="Section 1 Image">
+            </div>
+            <div class="content-section" id="section2">
+                <img class="image-section" src="public/img/Puestal/Frame 2.png" alt="Section 2 Image">
+            </div>
+            <div class="content-section" id="section3">
+                <img class="image-section" src="public/img/Puestal/Frame 3.png" alt="Section 3 Image">
+            </div>
+             <div class="content-section" id="section3">
+                <img class="image-section" src="public/img/Puestal/Frame 6.png" alt="Section 3 Image">
+            </div>
+             <div class="content-section" id="section3">
+                <img class="image-section" src="public/img/Puestal/Frame 8.png" alt="Section 3 Image">
+            </div>
+                         <div class="content-section" id="section3">
+                <img class="image-section" src="public/img/Puestal/Frame 28.png" alt="Section 3 Image">
+            </div>
+            <div class="content-section" id="section3">
+                <img class="image-section" src="public/img/Puestal/Frame 29.png" alt="Section 3 Image">
+            </div>
+            <div class="content-section" id="section3">
+                <img class="image-section" src="public/img/Puestal/Frame 30.png" alt="Section 3 Image">
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
