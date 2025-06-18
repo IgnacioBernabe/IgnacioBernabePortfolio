@@ -29,7 +29,7 @@
 
 
  <div id="threejs-container"></div>
-    <div class="page-container">
+    <div class="page-container" id="sobre-mi">
         <div class="top-description">
             Soy Ignacio Bernabe, un apasionado diseñador UI/UX y desarrollador web con una profunda vocación por crear experiencias digitales memorables. Fusiono estética, funcionalidad y narrativa para dar vida a productos que conectan con las personas.
         </div>
@@ -285,7 +285,7 @@ style="fill:#FFFFFF;">
 
 
   <!-- Footer -->
-  <footer>
+  <footer id="contacto">
     <div class="footer-left">
       <h1>Vamos a trabajar juntos</h1>
       <a href="mailto:ignbrnb@gmail.com?subject=Consulta%20desde%20tu%20web&body=Hola%2C%20me%20gustaría%20ponerme%20en%20contacto%20contigo." target="_blank">
@@ -319,15 +319,34 @@ style="fill:#FFFFFF;">
   <script src="script.js"></script>
 
 
-<script> document.addEventListener('DOMContentLoaded', () => {
-  const proyectosLink = document.querySelector('a[href="#proyectos"]');
-  
-  proyectosLink.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevent default anchor behavior
-    const mainContainer = document.getElementById('proyectos');
-    mainContainer.scrollIntoView({ behavior: 'smooth' });
+<script> 
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = [
+    { selector: 'a[href="#sobre-mi"]', target: '#sobre-mi' },
+    { selector: 'a[href="#proyectos"]', target: '#proyectos' },
+    { selector: 'a[href="#contacto"]', target: '#contacto' }
+  ];
+
+  navLinks.forEach(link => {
+    const element = document.querySelector(link.selector);
+    if (element) {
+      element.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetElement = document.querySelector(link.target);
+        if (targetElement) {
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: { y: targetElement, offsetY: 50 },
+            ease: 'power2.out'
+          });
+        }
+      });
+    }
   });
 });
+
+    
 </script>
 </body>
 </html>
