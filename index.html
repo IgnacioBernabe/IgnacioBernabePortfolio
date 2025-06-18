@@ -236,7 +236,7 @@ style="fill:#FFFFFF;">
 
 
   <!-- Main Content -->
-<div class="main-container">
+<div class="main-container" id="proyectos">
   <div class="left-column">
     <h1>Selección de Algunos de mis <span class="red-text">Mejores</span> Proyectos</h1>
     <div class="caption">
@@ -317,5 +317,17 @@ style="fill:#FFFFFF;">
   <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/MTLLoader.js"></script>
 
   <script src="script.js"></script>
+
+
+<script> document.addEventListener('DOMContentLoaded', () => {
+  const proyectosLink = document.querySelector('a[href="#proyectos"]');
+  
+  proyectosLink.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    const mainContainer = document.getElementById('proyectos');
+    mainContainer.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
 </body>
 </html>
